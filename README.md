@@ -1,0 +1,1 @@
+We have been tasked in alx to create a printf function which is similar to the C printf function from the standard input/ output library. This repository contains work by Princess Okonta and Mbock Georges
