@@ -20,8 +20,6 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] != '%')
 		{
-			/* _prinf("Hello") must not be equal to % or \0 */
-			/* we count the number of characters */
 			n = n + _putchar(format[i]);
 			i++;
 		}
@@ -30,20 +28,23 @@ int _printf(const char *format, ...)
 			switch (format[i + 1])
 			{
 				case 'c':
-					/* print a character from the va_arg*/
-					n  = n + _putchar(va_arg(list, int)), break;
+					n  = n + _putchar(va_arg(list, int));
+					break;
 				case 's':
-					n += print_string(va_arg(list, char *)), break;
+					n += print_string(va_arg(list, char *));
+					break;
 				case '%':
-					n = n + _putchar('%'), break;
+					n = n + _putchar('%');
+					break;
 				case 'd':
-					n = n + print_decimal(va_arg(list, int)), break;
+					n = n + print_decimal(va_arg(list, int));
+					break;
 				case 'i':
-					n = n + print_decimal(va_arg(list, int)), break;
+					n = n + print_decimal(va_arg(list, int));
+					break;
 				default:
 					break;
-			}
-			i = i + 2;
+			} i = i + 2;
 		}
 	}
 	va_end(list);
