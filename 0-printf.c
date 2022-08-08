@@ -16,13 +16,14 @@ int _printf(const char *format, ...)
 	int i = 0;
 
 	va_start(list, format);
-	for (; format[i] != '\0'; i++)
+	for (; format[i] != '\0'; )
 	{
-		if (format != %)
+		if (format[i] != '%')
 		{
 			/* _prinf("Hello") must not be equal to % or \0 */
 			/* we count the number of characters */
 			n = n + _putchar(format[i]);
+			i++;
 		}
 		else if (format[i] == '%' && format[i + 1] != ' ')
 		{
@@ -38,9 +39,12 @@ int _printf(const char *format, ...)
 				case '%':
 				n = n + _putchar('%');
 					break;
-					default;
+				default:
+					break;
 			}
 			i = i + 2;
 		}
 	}
+	va_end(list);
+	return (n);
 }
