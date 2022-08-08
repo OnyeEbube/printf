@@ -1,5 +1,4 @@
 #include "main.h"
-#include <unstd.h>
 #include <stdarg.h>
 
 /**
@@ -11,9 +10,9 @@
 
 int _printf(const char *format, ...)
 {
+	va_list list;
 	int n = 0;
 	int i = 0;
-	va_list list;
 
 	va_start(list, format);
 	for (; format[i] != '\0'; i++)
@@ -34,6 +33,9 @@ int _printf(const char *format, ...)
 					break;
 				case 's':
 				n += print_string(va_arg(list, char *));
+					break;
+				case '%':
+				n = n + _putchar('%');
 					break;
 					default;
 			}
