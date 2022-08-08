@@ -11,11 +11,11 @@ int print_decimal(int value)
 {
   int count = 0;
   
-  if (value >= 0)
+  if (value / 10)
   {
     /* value = 98 */
-    print_decimal(value / 10); /* prints 9 */
-    count += _putchar(value % 10 + '0'); /* prints 8 */
+    count += print_decimal(value / 10); /* prints 9 */
   }
+  count += _putchar((value % 10) + '0'); /* prints 8 */
   return (count);
 }
