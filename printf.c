@@ -42,6 +42,9 @@ int _printf(const char *format, ...)
 				case 'd':
 					n = n + print_decimal(va_arg(list, int));
 					break;
+				case 'i':
+					n = n + print_decimal(va_arg(list, int));
+					break;
 				default:
 					break;
 			}
