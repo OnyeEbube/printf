@@ -15,7 +15,7 @@ int print_decimal(int value)
   {
     /* value = 98 */
     print_decimal(value / 10); /* prints 9 */
-    count += _putchar(value % 10); /* prints 8 */
+    count += _putchar(value % 10 + '0'); /* prints 8 */
   }
   return (count);
 }
