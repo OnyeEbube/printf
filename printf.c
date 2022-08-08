@@ -40,7 +40,7 @@ int _printf(const char *format, ...)
 					n = n + _putchar('%');
 					break;
 				case 'd':
-					n = n + print_decimal(va_ard(list, int));
+					n = n + print_decimal(va_arg(list, int));
 					break;
 				default:
 					break;
