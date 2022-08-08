@@ -30,14 +30,17 @@ int _printf(const char *format, ...)
 			switch (format[i + 1])
 			{
 				case 'c':
-				/* print a character from the va_arg*/
-				n  = n + _putchar(va_arg(list, int));
+					/* print a character from the va_arg*/
+					n  = n + _putchar(va_arg(list, int));
 					break;
 				case 's':
-				n += print_string(va_arg(list, char *));
+					n += print_string(va_arg(list, char *));
 					break;
 				case '%':
-				n = n + _putchar('%');
+					n = n + _putchar('%');
+					break;
+				case 'd':
+					n = n + print_decimal(va_ard(list, int));
 					break;
 				default:
 					break;
