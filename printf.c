@@ -31,20 +31,15 @@ int _printf(const char *format, ...)
 			{
 				case 'c':
 					/* print a character from the va_arg*/
-					n  = n + _putchar(va_arg(list, int));
-					break;
+					n  = n + _putchar(va_arg(list, int)), break;
 				case 's':
-					n += print_string(va_arg(list, char *));
-					break;
+					n += print_string(va_arg(list, char *)), break;
 				case '%':
-					n = n + _putchar('%');
-					break;
+					n = n + _putchar('%'), break;
 				case 'd':
-					n = n + print_decimal(va_arg(list, int));
-					break;
+					n = n + print_decimal(va_arg(list, int)), break;
 				case 'i':
-					n = n + print_decimal(va_arg(list, int));
-					break;
+					n = n + print_decimal(va_arg(list, int)), break;
 				default:
 					break;
 			}
