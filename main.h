@@ -7,5 +7,6 @@ int _putchar(char c);
 int print_decimal(int value);
 int _pow_recursion(int x, int y);
 long long convertToDecimal(int num, int base);
+int print_binary(int x);
 
 #endif
