@@ -23,7 +23,7 @@ int handle_print(const char *fr_mt, int *ind, va_list list, char buffer[],
 		{'r', print_reverse}, {'R', print_rot13string}, {'\0', NULL}
 	};
 	for (i = 0; fmt_types[i].fr_mt != '\0'; i++)
-		if (fr_mt[*ind] == fmt_types[i].fmt)
+		if (fr_mt[*ind] == fmt_types[i].fr_mt)
 			return (fmt_types[i].fn(list, buffer, flags, width, precision, size));
 
 	if (fmt_types[i].fr_mt == '\0')

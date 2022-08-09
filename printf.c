@@ -23,7 +23,7 @@ int _printf(const char *format, ...)
 		if (format[i] != '%')
 		{
 			buf[n++] = format[i];
-			if (n == bufsize)
+			if (n == BUFSIZE)
 				print_buf(buf, &n);
 			printchar++;
 		}
@@ -35,7 +35,7 @@ int _printf(const char *format, ...)
 			precision = get_precision(format, &i, list);
 			size = get_size(format, &i);
 			++i;
-			print = handle_print(format, &i, list, buf, flag, width, precision, size);
+			print = handle_print(format, &i, list, buf, flags, width, precision, size);
 			if (print == -1)
 				return (-1);
 			printchar += print;
