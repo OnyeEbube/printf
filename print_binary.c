@@ -9,7 +9,7 @@
 
 int print_binary(int x)
 {
-	int count = 0;
+	int count = 0, j;
 	int arr[32], i = 0;
 
 	while (x / 2 > 2)
@@ -18,9 +18,9 @@ int print_binary(int x)
 		x = x / 2;
 		i++;
 	}
-	for (i; i >= 0; i--)
+	for (j = i; j >= 0; j--)
 	{
-		count += _putchar(arr[i] + '0');
+		count += _putchar(arr[j] + '0');
 	}
 	return (count);
 }

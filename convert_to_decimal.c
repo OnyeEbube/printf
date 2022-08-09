@@ -8,7 +8,7 @@
  * Return: the converted number
  */
 
-long long convertToDecimal(int num, int base)
+long long int convertToDecimal(int num, int base)
 {
 	int decimal = 0, i = 0;
 
