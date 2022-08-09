@@ -13,7 +13,7 @@ long long convertToDecimal(int num, int base)
   
   while (num != 0)
   {
-    decimal += (num % 10) * power_recursion(base, i);
+    decimal += (num % 10) * _pow_recursion(base, i);
     ++i;
     num /= 10;
   }
