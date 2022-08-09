@@ -42,6 +42,9 @@ int _printf(const char *format, ...)
 				case 'i':
 					n = n + print_decimal(va_arg(list, int));
 					break;
+				case 'b':
+					n += print_binary(va_arg(list, int));
+					break;
 				default:
 					break;
 			} i = i + 2;
