@@ -15,19 +15,19 @@ int print_pointer(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
 	char extra_c = 0, padd = ' ';
-	int ind = BUFSIZE - 2, length = 2, padd_start = 1; /* length=2, for '0x' */
+	int ind = BUFF_SIZE - 2, length = 2, padd_start = 1; /* length=2, for '0x' */
 	unsigned long num_addrs;
 	char map_to[] = "0123456789abcdef";
 	void *addrs = va_arg(types, void *);
 
-	NOT_USED(width);
-	NOT_USED(size);
+	UNUSED(width);
+	UNUSED(size);
 
 	if (addrs == NULL)
 		return (write(1, "(nil)", 5));
 
-	buffer[BUFSIZE - 1] = '\0';
-	NOT_USED(precision);
+	buffer[BUFF_SIZE - 1] = '\0';
+	UNUSED(precision);
 
 	num_addrs = (unsigned long)addrs;
 
@@ -47,7 +47,7 @@ int print_pointer(va_list types, char buffer[],
 
 	ind++;
 
-	/*return (write(1, &buffer[i], BUFSIZE - i - 1));*/
+	/*return (write(1, &buffer[i], BUFF_SIZE - i - 1));*/
 	return (write_pointer(buffer, ind, length,
 		width, flags, padd, extra_c, padd_start));
 }
@@ -69,10 +69,10 @@ int print_non_printable(va_list types, char buffer[],
 	int i = 0, offset = 0;
 	char *str = va_arg(types, char *);
 
-	NOT_USED(flags);
-	NOT_USED(width);
-	NOT_USED(precision);
-	NOT_USED(size);
+	UNUSED(flags);
+	UNUSED(width);
+	UNUSED(precision);
+	UNUSED(size);
 
 	if (str == NULL)
 		return (write(1, "(null)", 6));
@@ -110,16 +110,16 @@ int print_reverse(va_list types, char buffer[],
 	char *str;
 	int i, count = 0;
 
-	NOT_USED(buffer);
-	NOT_USED(flags);
-	NOT_USED(width);
-	NOT_USED(size);
+	UNUSED(buffer);
+	UNUSED(flags);
+	UNUSED(width);
+	UNUSED(size);
 
 	str = va_arg(types, char *);
 
 	if (str == NULL)
 	{
-		NOT_USED(precision);
+		UNUSED(precision);
 
 		str = ")Null(";
 	}
@@ -157,11 +157,11 @@ int print_rot13string(va_list types, char buffer[],
 	char out[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 	str = va_arg(types, char *);
-	NOT_USED(buffer);
-	NOT_USED(flags);
-	NOT_USED(width);
-	NOT_USED(precision);
-	NOT_USED(size);
+	UNUSED(buffer);
+	UNUSED(flags);
+	UNUSED(width);
+	UNUSED(precision);
+	UNUSED(size);
 
 	if (str == NULL)
 		str = "(AHYY)";
