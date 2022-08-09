@@ -27,7 +27,7 @@
 struct fr_mt
 {
   char fr_mt;
-  int (*fn)(va_list, char[], int, int, int, int, int);
+  int (*fn)(va_list, char[], int, int, int, int);
 };
 
 /**
