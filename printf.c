@@ -1,6 +1,4 @@
 #include "main.h"
-#include <stdarg.h>
-#include <stdio.h>
 
 /**
  * _printf - produces an output according to a format
@@ -12,44 +10,38 @@
 int _printf(const char *format, ...)
 {
 	va_list list;
-	int n = 0;
+	int n = 0, print = 0, printchar = 0;
 	int i = 0;
+	int flags, width, precision, size;
+	char buf[BUFSIZE];
 
+	if (format == NULL)
+		return (-1);
 	va_start(list, format);
 	for (; format[i] != '\0'; )
 	{
 		if (format[i] != '%')
 		{
-			n = n + _putchar(format[i]);
-			i++;
+			buf[n++] = format[i];
+			if (n == bufsize)
+				print_buf(buf, &n);
+			printchar++;
 		}
-		else if (format[i] == '%' && format[i + 1] != ' ')
+		else
 		{
-			switch (format[i + 1])
-			{
-				case 'c':
-					n  = n + _putchar(va_arg(list, int));
-					break;
-				case 's':
-					n += print_string(va_arg(list, char *));
-					break;
-				case '%':
-					n = n + _putchar('%');
-					break;
-				case 'd':
-					n = n + print_decimal(va_arg(list, int));
-					break;
-				case 'i':
-					n = n + print_decimal(va_arg(list, int));
-					break;
-				case 'b':
-					n += print_binary(va_arg(list, int));
-					break;
-				default:
-					break;
-			} i = i + 2;
+			print_buf(buf, &n);
+			flags = get_flags(format, &i);
+			width = get_width(format, &i, list);
+			precision = get_precision(format, &i, list);
+			size = get_size(format, &i);
+			++i;
+			print = handle_print(format, &i, list, buf, flag, width, precision, size);
+			if (print == -1)
+				return (-1);
+			printchar += print;
 		}
 	}
+	print_buf(buf, &n);
 	va_end(list);
-	return (n);
+	return (printchar);
 }
