@@ -45,7 +45,9 @@ va_list list, char buffer[], int flags, int width, int precision, int size);
 
 /* FUNCTIONS */
 int print_string(va_list list, char buf[], int flags, int width, int precision, int size);
-void print_buf(char buf[], int *n);
+	void print_buf(char buf[], int *n);
+int print_char(va_list types, char buffer[],
+	int flags, int width, int precision, int size);
 int print_percent(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 int print_int(va_list types, char buffer[],
